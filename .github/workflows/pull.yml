@@ -1,5 +1,19 @@
 name: pull-ticker-info
-on: [push]
+on: 
+  push:
+    branches:
+      - '*'
+  schedule:
+    # ┌───────────── minute (0 - 59)
+    # │ ┌───────────── hour (0 - 23)
+    # │ │ ┌───────────── day of the month (1 - 31)
+    # │ │ │ ┌───────────── month (1 - 12 or JAN-DEC)
+    # │ │ │ │ ┌───────────── day of the week (0 - 6 or SUN-SAT)
+    # │ │ │ │ │                                   
+    # │ │ │ │ │
+    # │ │ │ │ │
+    # * * * * *
+    - cron:  '0 0 * * *'
 jobs:
   pull-ticker-info:
     runs-on: ubuntu-latest
@@ -12,6 +26,18 @@ jobs:
           python -m pip install --upgrade pip
           pip install requests
       - run: ticker=XAW.TO python search.py
+        env:
+          alphaToken: ${{ secrets.alphaToken }}
+      - run: ticker=VCN.TO python search.py
+        env:
+          alphaToken: ${{ secrets.alphaToken }}
+      - run: ticker=ZAG.TO python search.py
+        env:
+          alphaToken: ${{ secrets.alphaToken }}
+      - run: ticker=VEQT.TO python search.py
+        env:
+          alphaToken: ${{ secrets.alphaToken }}
+      - run: ticker=VT python search.py
         env:
           alphaToken: ${{ secrets.alphaToken }}
       - name: setup git config
