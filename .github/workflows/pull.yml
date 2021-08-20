@@ -12,3 +12,5 @@ jobs:
           python -m pip install --upgrade pip
           pip install requests
       - run: python search.py
+        env:
+          alphaToken: ${{ secrets.alphaToken }}
