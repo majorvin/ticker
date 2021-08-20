@@ -24,4 +24,4 @@ jobs:
           # Stage the file, commit and push
           git add .
           git commit -m "update data"
-          git push origin initia
+          git push origin ${{ github.head_ref }}
