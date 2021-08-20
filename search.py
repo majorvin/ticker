@@ -9,6 +9,8 @@ url = "https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=" + t
 r = requests.get(url)
 body = r.json()
 
+print("------ REPONSE --------")
+print(body)
 
 price = ""
 date = ""
