@@ -14,3 +14,14 @@ jobs:
       - run: python search.py
         env:
           alphaToken: ${{ secrets.alphaToken }}
+      - name: setup git config
+        run: |
+          # setup the username and email. I tend to use 'GitHub Actions Bot' with no email by default
+          git config user.name "GitHub Actions Bot"
+          git config user.email "<>"
+      - name: commit
+        run: |
+          # Stage the file, commit and push
+          git add .
+          git commit -m "update data"
+          git push origin initia
