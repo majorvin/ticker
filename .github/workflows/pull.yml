@@ -1,7 +1,7 @@
 name: pull-ticker-info
 on: [push]
 jobs:
-  check-bats-version:
+  pull-ticker-info:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -10,5 +10,5 @@ jobs:
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install requests os
+          pip install requests
       - run: python search.py
