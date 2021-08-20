@@ -23,5 +23,5 @@ jobs:
         run: |
           # Stage the file, commit and push
           git add .
-          git commit -m "update data"
+          git commit -m "Update Data"
           git push origin ${{ github.head_ref }}
