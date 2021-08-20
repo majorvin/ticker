@@ -2,7 +2,7 @@ import requests
 import json
 import os
 
-ticker = "XAW.TO"
+ticker = os.environ['ticker']
 alphaToken = os.environ['alphaToken']
 
 url = "https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=" + ticker + "&apikey=$" + alphaToken
